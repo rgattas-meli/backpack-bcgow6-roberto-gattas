@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	minimum = "minimum"
+	MINIMUM = "minimum"
 	average = "average"
 	maximum = "maximum"
 )
@@ -44,7 +44,7 @@ func maxi(alumnos ...int) int {
 }
 
 func operation(oper string) (func(...int) int, error) {
-	if oper == minimum {
+	if oper == MINIMUM {
 		return mini, nil
 	} else if oper == average {
 		return averg, nil
@@ -56,7 +56,7 @@ func operation(oper string) (func(...int) int, error) {
 }
 
 func main() {
-	minFunc, err := operation(minimum)
+	minFunc, err := operation(MINIMUM)
 	averageFunc, err := operation(average)
 	maxFunc, err := operation(maximum)
 

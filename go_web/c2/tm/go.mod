@@ -1,6 +1,6 @@
-module github.com/bootcamp-go/go-web
+module github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_web/c2/tm
 
-go 1.18
+go 1.19
 
 require github.com/gin-gonic/gin v1.8.1
 

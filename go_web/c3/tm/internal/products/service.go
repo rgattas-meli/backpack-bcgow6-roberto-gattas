@@ -13,7 +13,7 @@ type Service interface {
 	GetAll() ([]Product, error)
 	Store(nombre, tipo string, cantidad int, precio float64) (Product, error)
 	Update(id int, name, productType string, count int, price float64) (Product, error)
-	Patch(id int, name string) (Product, error)
+	Patch(id int, name string, price float64) (Product, error)
 	Delete(id int) error
 
 }
@@ -58,9 +58,9 @@ func (s *service) Update(id int, name, productType string, count int, price floa
 	return s.repository.Update(id, name, productType, count, price)
  }
  
- func (s *service) Patch(id int, name string) (Product, error) {
+ func (s *service) Patch(id int, name string, price float64) (Product, error) {
 
-	return s.repository.Patch(id, name)
+	return s.repository.Patch(id, name, price)
  }
  
 

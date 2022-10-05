@@ -25,7 +25,7 @@ type Repository interface {
 	GetAll() ([]Product, error)
 	Store(id int, nombre, tipo string, cantidad int, precio float64) (Product, error)
 	LastID() (int, error)
-	Patch(id int, name string) (Product, error)
+	Patch(id int, name string, price float64) (Product, error)
 	Update(id int,  name, productType string, count int, price float64) (Product, error)
 	Delete(id int) error
 
@@ -71,12 +71,13 @@ func (r *repository) Update(id int,  name, productType string, count int, price 
  }
 
  
- func (r *repository) Patch(id int, name string) (Product, error) {
+ func (r *repository) Patch(id int, name string, price float64) (Product, error) {
 	var p Product
 	updated := false
 	for i := range ps {
 		if ps[i].ID == id {
 			ps[i].Name = name
+			ps[i].Price = price
 			updated = true
 			p = ps[i]
 		}

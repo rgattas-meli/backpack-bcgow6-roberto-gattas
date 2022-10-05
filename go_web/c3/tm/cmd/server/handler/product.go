@@ -130,7 +130,7 @@ func (c *Product) Update() gin.HandlerFunc {
 			ctx.JSON(400, gin.H{ "error": "El nombre del producto es requerido"})
 			return
 		}
-		p, err := c.service.Patch(int(id), req.Name)
+		p, err := c.service.Patch(int(id), req.Name, req.Price)
 		if err != nil {
 			ctx.JSON(404, gin.H{ "error": err.Error() })
 			return

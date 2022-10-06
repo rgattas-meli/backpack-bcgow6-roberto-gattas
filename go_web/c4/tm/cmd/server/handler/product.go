@@ -6,7 +6,6 @@ import (
 	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_web/c4/tm/pkg/web"
 	"strconv"
 	"fmt"
-	"os"
 )
 
 type request struct {

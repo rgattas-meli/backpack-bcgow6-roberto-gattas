@@ -1,21 +1,8 @@
 package main
-import "github.com/bootcamp-go/hackaton-go-bases/internal/service"
-import "os"
-import ""
+import "github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_bases/hackaton-go-bases-main/internal/service"
 
 func main() {
 	var tickets []service.Ticket
-	file := *File{
-		path : "tickets.csv",
-	}
-	tickets, err := file.Read()
-	if err!= nil {
-        panic(err)
-    }
-
-
-	
-
-
+	// Funcion para obtener tickets del archivo csv
 	service.NewBookings(tickets)
 }

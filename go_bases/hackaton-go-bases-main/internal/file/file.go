@@ -6,7 +6,7 @@ import (
 	"os"
 	"encoding/csv"
 	"strconv"
-	"github.com/bootcamp-go/hackaton-go-bases/internal/service"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_bases/hackaton-go-bases-main/internal/service"
 	"github.com/gocarina/gocsv"
 )
 

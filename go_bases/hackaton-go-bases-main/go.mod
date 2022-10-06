@@ -1,4 +1,4 @@
-module github.com/bootcamp-go/hackaton-go-bases
+module github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_bases/hackaton-go-bases-main
 
 go 1.18
 

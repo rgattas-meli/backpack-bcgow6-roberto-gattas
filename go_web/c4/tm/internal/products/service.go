@@ -13,7 +13,7 @@ type Service interface {
 	GetAll() ([]Product, error)
 	Store(nombre, tipo string, cantidad int, precio float64) (Product, error)
 	Update(id int, name, productType string, count int, price float64) (Product, error)
-	Patch(id int, name string, price float64) (Product, error)
+	Patch(id int, name string, price float64) (Product, error)	
 	Delete(id int) error
 
 }

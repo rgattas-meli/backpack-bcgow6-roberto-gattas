@@ -1,7 +1,7 @@
 package router
 
 import (
-	"github.com/bootcamp-go/desafio-cierre-testing/internal/products"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c4/internal/products"
 	"github.com/gin-gonic/gin"
 )
 

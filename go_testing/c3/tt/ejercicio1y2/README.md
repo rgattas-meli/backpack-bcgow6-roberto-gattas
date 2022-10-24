@@ -55,9 +55,9 @@ go test ./... -v
 2. Podemos ver 
 
 ```go
-?       github.com/bootcamp-go/cmd/server     [no test files]
-?       github.com/bootcamp-go/cmd/server/handler     [no test files]
-?       github.com/bootcamp-go/docs   [no test files]
+?       github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/cmd/server     [no test files]
+?       github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/cmd/server/handler     [no test files]
+?       github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/docs   [no test files]
 === RUN   TestUpdateReceptorYMonto
 --- PASS: TestUpdateReceptorYMonto (0.00s)
 === RUN   TestGetAll
@@ -69,9 +69,9 @@ go test ./... -v
 === RUN   TestDelete
 --- PASS: TestDelete (0.00s)
 PASS
-ok      github.com/bootcamp-go/internal/transactions  0.004s
-?       github.com/bootcamp-go/pkg/store      [no test files]
-?       github.com/bootcamp-go/pkg/web        [no test files]
+ok      github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/internal/transactions  0.004s
+?       github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/store      [no test files]
+?       github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/web        [no test files]
 ```
 
 

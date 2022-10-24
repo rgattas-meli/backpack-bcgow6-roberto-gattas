@@ -3,12 +3,12 @@ package main
 import (
 	"os"
 
-	"github.com/bootcamp-go/cmd/server/handler"
-	"github.com/bootcamp-go/docs"
-	"github.com/bootcamp-go/internal/transactions"
-	"github.com/bootcamp-go/pkg/store"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/cmd/server/handler"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/docs"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/internal/transactions"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/store"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )

@@ -3,7 +3,7 @@ package transactions
 import (
 	"fmt"
 
-	"github.com/bootcamp-go/pkg/store"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/store"
 )
 
 type Repository interface {

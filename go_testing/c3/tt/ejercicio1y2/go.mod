@@ -1,4 +1,4 @@
-module github.com/bootcamp-go
+module github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2
 
 go 1.18
 

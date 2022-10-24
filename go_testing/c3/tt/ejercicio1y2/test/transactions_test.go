@@ -10,11 +10,11 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/bootcamp-go/cmd/server/handler"
-	"github.com/bootcamp-go/internal/transactions"
-	"github.com/bootcamp-go/pkg/store"
-	"github.com/bootcamp-go/pkg/web"
 	"github.com/gin-gonic/gin"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/cmd/server/handler"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/internal/transactions"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/store"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/web"
 	"github.com/stretchr/testify/assert"
 )
 

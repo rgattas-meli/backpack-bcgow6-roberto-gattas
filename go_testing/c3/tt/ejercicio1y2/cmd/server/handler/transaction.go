@@ -5,9 +5,9 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/bootcamp-go/internal/transactions"
-	"github.com/bootcamp-go/pkg/web"
 	"github.com/gin-gonic/gin"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/internal/transactions"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/go_testing/c3/tt/ejercicio1y2/pkg/web"
 )
 
 type request struct {

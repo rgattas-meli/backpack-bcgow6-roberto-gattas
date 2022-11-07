@@ -1,0 +1,66 @@
+
+
+Listar los datos de los autores.
+
+SELECT * FROM autor
+
+Listar nombre y edad de los estudiantes
+
+SELECT e.Nombre, e.Apellido, e.Edad FROM estudiante
+
+¿Qué estudiantes pertenecen a la carrera informática?
+
+Select e.Nombre, e.Apellido FROM estudiante
+WHERE e.Carrera = "informática"
+
+¿Qué autores son de nacionalidad francesa o italiana?
+
+Select * from autor where nacionalidad = "francesa" or nacionalidad = "italiana"
+
+¿Qué libros no son del área de internet?
+
+Select * from libros where not Area = "internet"
+
+Listar los libros de la editorial Salamandra.
+
+select l.Titulo from libro where l.editorial = "Salamandra"
+
+Listar los datos de los estudiantes cuya edad es mayor al promedio.
+
+select * from estudiante where estudiante.edad > AVG(Edad)
+
+
+Listar los nombres de los estudiantes cuyo apellido comience con la letra G.
+
+SELECT E.NOMBRE FROM estudiante WHERE estudiante.apellido startswith "G"
+
+Listar los autores del libro “El Universo: Guía de viaje”. (Se debe listar solamente los nombres).
+
+Select la.Autor From libroautor 
+innerjoin libro on libroautor.idlibro = libro.idlibro
+where libro.nombre like 'Guía de viaje'
+
+¿Qué libros se prestaron al lector “Filippo Galli”?
+
+Select l.Titulo from libro as l
+innerjoin prestamo on l.idlibro = prestamo.idlibro
+innerjoin estudiante on estudiante.idlector = estudiante.idlector
+WHERE estudiante.nombre == 'Filippo' and estudiante.apellido == 'Galli'
+
+Listar el nombre del estudiante de menor edad.
+
+select estudiante.nombre from estudiante
+where estudiante.edad > MIN(edad)
+
+Listar nombres de los estudiantes a los que se prestaron libros de Base de Datos.
+
+
+
+Listar los libros que pertenecen a la autora J.K. Rowling.
+
+
+
+Listar títulos de los libros que debían devolverse el 16/07/2021.
+
+
+

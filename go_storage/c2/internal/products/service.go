@@ -3,22 +3,48 @@ package products
 import "github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/domains"
 
 type Service interface {
-	Store(domains.Product) (int, error)
-	GetByName(name string) (domains.Product, error)
+	Store(p domains.Product) (domains.Product, error)
+
+	GetAll() ([]domains.Product, error)
+	Delete(id int) error
 }
 
 type service struct {
-	repository Repository
+	product Repository
 }
 
-func NewService(r Repository) Service {
-	return &service{repository: r}
+func NewService(product Repository) Service {
+	return &service{
+		product: product,
+	}
 }
 
-func (s *service) Store(p domains.Product) (int, error) {
-	return s.repository.Store(p)
+func (s *service) Store(p domains.Product) (domains.Product, error) {
+	product, err := s.product.Store(p)
+	if err != nil {
+		return domains.Product{}, err
+	}
+
+	p.ID = product.ID
+	return p, nil
 }
 
-func (s *service) GetByName(name string) (domains.Product, error) {
-	return s.repository.GetByName(name)
+
+
+func (s *service) GetAll() ([]domains.Product, error) {
+	product, err := s.product.GetAll()
+	if err != nil {
+		return []domains.Product{}, err
+	}
+
+	return product, err
+}
+
+
+func (s *service) Delete(id int) error {
+	err := s.product.Delete(id)
+	if err != nil {
+		return err
+	}
+	return nil
 }

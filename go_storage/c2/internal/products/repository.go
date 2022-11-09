@@ -3,65 +3,85 @@ package products
 import (
 	"database/sql"
 	"fmt"
+	"log"
 
 	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/domains"
 )
+var ErrNotImplemented = fmt.Errorf("not implemented")
 
 type Repository interface {
-	Store(p domains.Product) (int, error)
-	GetByName(name string) (domains.Product, error)
-}
+	Store(domains.Product) (domains.Product, error)
 
-func NewRepository(db *sql.DB) Repository {
-	return &repository{db: db}
+	GetAll() ([]domains.Product, error)
+	Delete(id int) error
 }
 
 type repository struct {
 	db *sql.DB
 }
 
-/* Ejercicio 2 - Replicar Store()
-Tomar el ejemplo visto en la clase y diseñar el método Store():
-Puede tomar de ejemplo la definición del método Store visto en clase para incorporarlo en la interfaz.
-Implementar el método Store.
-*/
-func (r *repository) Store(p domains.Product) (int, error) {
-	stmt, err := r.db.Prepare("INSERT INTO products (name, type, count, price) VALUES (?,?,?,?)")
-	if err != nil {
-		return 0, fmt.Errorf("error al preparar la consulta - error %v", err)
+func NewRepo(db *sql.DB) Repository {
+	return &repository{
+		db: db,
 	}
-	defer stmt.Close()
-
-	result, err := stmt.Exec(p.Name, p.Type, p.Count, p.Price)
-	if err != nil {
-		return 0, fmt.Errorf("error al ejecutar la consulta - error %v", err)
-	}
-
-	id, err := result.LastInsertId()
-	if err != nil {
-		return 0, fmt.Errorf("error al obtener último id - error %v", err)
-	}
-
-	return int(id), nil
 }
 
-/* Ejercicio 1 - Implementar GetByName()
-Desarrollar un método en el repositorio que permita hacer búsquedas de un producto por nombre. Para lograrlo se deberá:
-Diseñar interfaz “Repository” en la que exista un método GetByName() que reciba por parámetro un string y retorna una estructura del tipo Product.
-Implementar el método de forma que con el string recibido lo use para buscar en la DB por el campo “name”.
-*/
-func (r *repository) GetByName(name string) (domains.Product, error) {
-	stmt, err := r.db.Prepare("SELECT id, name, type, count, price FROM products WHERE name = ?;")
-	if err != nil {
-		return domains.Product{}, fmt.Errorf("error al preparar la consulta - error %v", err)
-	}
-	defer stmt.Close()
+func (r *repository) Store(product domains.Product) (domains.Product, error) { // se inicializa la base
 
-	var product domains.Product
-	err = stmt.QueryRow(name).Scan(&product.ID, &product.Name, &product.Type, &product.Count, &product.Price)
+	stmt, err := r.db.Prepare("INSERT INTO products(name, type, count, price) VALUES( ?, ?, ?, ? )") // se prepara la sentencia SQL a ejecutar
 	if err != nil {
-		return domains.Product{}, fmt.Errorf("no registros para %s - error %v", name, err)
+		return domains.Product{}, err
 	}
-
+	defer stmt.Close() // se cierra la sentencia al terminar. Si quedan abiertas se genera consumos de memoria
+	var result sql.Result
+	result, err = stmt.Exec(product.Name, product.Type, product.Count, product.Price) // retorna un sql.Result y un error
+	if err != nil {
+		return domains.Product{}, err
+	}
+	insertedId, _ := result.LastInsertId() // del sql.Resul devuelto en la ejecucion obtenemos el Id insertado
+	product.ID = int(insertedId)
 	return product, nil
+}
+
+
+
+
+const (
+	GetAllProducts = "SELECT * FROM products"
+)
+
+func (r *repository) GetAll() ([]domains.Product, error) {
+	var products []domains.Product
+	rows, err := r.db.Query(GetAllProducts)
+	if err != nil {
+		log.Println(err)
+		return nil, err
+	}
+	// se recorren todas las filas
+	for rows.Next() {
+		// por cada fila se obtiene un objeto del tipo Product
+		var product domains.Product
+		if err := rows.Scan(&product.ID, &product.Name, &product.Type, &product.Count, &product.Price); err != nil {
+			log.Fatal(err)
+			return nil, err
+		}
+		//se añade el objeto obtenido al slice products
+		products = append(products, product)
+	}
+	return products, nil
+}
+
+func (r *repository) Delete(id int) error { // se inicializa la base
+	stmt, err := r.db.Prepare("DELETE FROM products WHERE id=?") // se prepara la sentencia SQL a ejecutar
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()     // se cierra la sentencia al terminar. Si quedan abiertas se genera consumos de memoria
+	_, err = stmt.Exec(id) // retorna un sql.Result y un error
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/bootcamp-go/storage/cmd/server/handler"
-	cnn "github.com/bootcamp-go/storage/db"
-	"github.com/bootcamp-go/storage/internal/products"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/cmd/server/handler"
+	cnn "github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/db"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/products"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )

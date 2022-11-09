@@ -1,4 +1,4 @@
-module github.com/bootcamp-go/storage
+module github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2
 
 go 1.18
 

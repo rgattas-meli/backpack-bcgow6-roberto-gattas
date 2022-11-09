@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/bootcamp-go/storage/internal/domains"
-	"github.com/bootcamp-go/storage/internal/products"
-	"github.com/bootcamp-go/storage/pkg/web"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/domains"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/products"
+	"github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/pkg/web"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,6 +1,6 @@
 package products
 
-import "github.com/bootcamp-go/storage/internal/domains"
+import "github.com/rgattas-meli/backpack-bcgow6-roberto-gattas/tree/main/go_storage/c2/internal/domains"
 
 type Service interface {
 	Store(domains.Product) (int, error)
